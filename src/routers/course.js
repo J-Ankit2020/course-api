@@ -22,7 +22,7 @@ router.post('/enrol', async (req, res) => {
             await user.save()
             course.users.push(user.name);
             await course.save()
-            return res.sendStatus(201);
+            return res.send('enrolled in course').status(201);
         }
         else {
             throw new Error('Enrollment date is over');
